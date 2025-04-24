@@ -28,9 +28,8 @@
   }
 
   .emojis {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); /* Responsive grid */
   gap: 10px;
   margin: 1rem 0;
   }
@@ -42,6 +41,9 @@
   padding: 10px;
   background: #f0f0f0;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   }
 
   .emoji:hover {
@@ -57,7 +59,7 @@
   }
 
   .hidden {
-  display: none;
+  display: none !important;
   }
 
   button {
@@ -179,87 +181,15 @@
   text-align: center;
   }
 
-  /* 👇👇👇 ADDED FOR RESPONSIVENESS 👇👇👇 */
-  /* Default styles for larger screens */
-
-  /* Media query for screens smaller than 768px (typical tablets) */
-  @media (max-width: 768px) {
-  .container {
-  padding: 1.5rem;
-  }
-
-  .emojis {
-  gap: 8px;
-  margin: 0.8rem 0;
-  }
-
-  .emoji {
-  font-size: 1.8rem;
-  padding: 8px;
-  }
-
-  button {
-  font-size: 0.95rem;
-  padding: 8px 16px;
-  margin: 0.4rem;
-  }
-
-  textarea {
-  height: 90px;
-  }
-
-  .modal-content {
-  padding: 1.5rem;
-  }
-
-  .close-button {
-  font-size: 1.3rem;
-  }
-
-  .emoji-buttons {
-  right: 8px;
-  gap: 8px;
-  }
-
-  .emoji-button {
-  font-size: 1.8rem;
-  padding: 8px;
-  }
-  }
-
-  /* Media query for screens smaller than 600px (typical phones) */
+  /* Responsive Design */
   @media (max-width: 600px) {
-  .container {
-  padding: 1rem;
-  }
-
   .emojis {
-  gap: 5px;
-  margin: 0.5rem 0;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns on smaller screens */
   }
 
   .emoji {
   font-size: 1.5rem;
-  padding: 5px;
-  }
-
-  button {
-  font-size: 0.9rem;
-  padding: 6px 12px;
-  margin: 0.3rem;
-  }
-
-  textarea {
-  height: 70px;
-  }
-
-  .modal-content {
-  width: 95%;
-  padding: 1rem;
-  }
-
-  .close-button {
-  font-size: 1.2rem;
+  padding: 8px;
   }
 
   .emoji-buttons {
@@ -273,29 +203,10 @@
   }
   }
 
-  /* Media query for even smaller screens (e.g., some older phones) */
-  @media (max-width: 400px) {
-  .emoji {
-  font-size: 1.2rem;
-  padding: 4px;
+  /* Hide all sections initially except mood selection */
+  #notes-section, #self-care-modal, #charity-list-modal, #privacy-policy-modal, #about-us-modal {
+  display: none;
   }
-
-  button {
-  font-size: 0.8rem;
-  padding: 5px 10px;
-  margin: 0.2rem;
-  }
-
-  .emoji-buttons {
-  gap: 3px;
-  }
-
-  .emoji-button {
-  font-size: 1.2rem;
-  padding: 4px;
-  }
-  }
-  /* ☝️☝️☝️ END RESPONSIVE ADDITIONS ☝️☝️☝️ */
   </style>
 </head>
 <body>
